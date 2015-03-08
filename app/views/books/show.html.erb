@@ -1,0 +1,7 @@
+<h1><%= @book.name %></h1>
+
+<ul>
+	<li><%= link_to @book.author.name, @book.author %></li>
+	<li><%= link_to @book.genre.name, @book.genre %></li>
+</ul>
+<p><%= link_to "Books", books_path %> </p>

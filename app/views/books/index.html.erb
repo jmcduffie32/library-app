@@ -1,0 +1,67 @@
+<div class="container">
+	<h1>Books</h1>
+	<ol class="breadcrumb">
+		<li class="actice">
+			Books
+		</li>
+	</ol>
+
+	<div class="row">
+		<div class='col-sm-12'>
+			<p>
+				<form>
+					<legend>Search</legend>
+					<div class='col-xs-4'>
+						<input type='text' class='form-control' value='<%= params[:keyword] %>' name='keyword' placeholder='Keyword' >
+					</div>
+				</form>
+			</p>
+			<p class='pull-right'>
+				<a href='#' id='show-form' class='btn btn-primary'>Add a Book</a>
+			</p>
+		</div>
+	</div>
+	<hr>
+
+	<div class='col-sm-12 book-form'>
+		<p>
+			
+			<legend>New Book</legend>
+
+			<div class='col-sm-5'>
+				<div class='form-group'>
+
+					<label><strong>Genre</strong></label>
+				</div>
+			</div>
+			<br>
+			<div class='form-group'>
+
+			</div>
+		</p>
+	</div>
+
+
+	<div class="row">
+		<div class="col-sm-8">
+			<ul class="list-unstyled book-list">
+
+				<%= render @books %>
+
+			</ul>
+		</div>
+		<div class='col-sm-4'>
+			<h2>Genres</h2>
+			<ul class="list-unstyled">
+				<% @genres.each do |genre| %>
+					<li>
+						<%= link_to genre.name, books_path(filter: genre.name), class: 'label label-primary' %>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+
+
+	
+</div>
