@@ -10,10 +10,12 @@ end
 group :production do
   gem 'pg'
   gem 'therubyracer', platforms: :ruby
+  gem 'rails_12factor'
 end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
+
 
 # Use Bootstrap framework
 gem 'twitter-bootstrap-rails', '3.2'
