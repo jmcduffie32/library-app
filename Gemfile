@@ -9,6 +9,7 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
+  gem 'therubyracer', platforms: :ruby
 end
 
 # Use SCSS for stylesheets
@@ -24,7 +25,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
