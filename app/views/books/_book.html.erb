@@ -1,18 +1,18 @@
 <li class="row">
-	<div class="col-sm-3">
-		<%= link_to image_from_ol(book.isbn), book %>
+<div class="col-sm-3">
+  <%= link_to image_from_ol(book.isbn), book %>
 
-	</div>	
-	<div class="col-sm-9">
-		<h3><%= link_to book.name, book %></h3>
-		<p class="text-muted"><em>Written by <%= book.author.name %></em></p>
-		<div>
-			<p>
-				<%= book.description %>
-			</p>
-		</div>
-		<span>
-			<%= link_to book.genre.name, book.genre, class: 'label label-primary' %>
-		</span>
-	</div>
+</div>	
+<div class="col-sm-9">
+  <h3><%= link_to book.name, book %></h3>
+  <p class="text-muted"><em>Written by <%= book.author.name %></em></p>
+  <div>
+    <p>
+    <%= book.description %>
+    </p>
+  </div>
+  <span>
+    <%= link_to book.genre.name, book.genre, class: 'label label-primary' if book.genre %>
+  </span>
+</div>
 </li>

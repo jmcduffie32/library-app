@@ -1,60 +1,63 @@
 class BooksController < ApplicationController
-	before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy]
 
-	def index
-		@books = Book.includes(:genre).search(params[:keyword]).filter(params[:filter])
-		@genres = Genre.all		
-	end
+  def index
+    @books = Book.includes(:genre).search(params[:keyword]).filter(params[:filter])
+    @genres = Genre.all
+    @book = Book.new
+  end
 
-	def show
-		
-	end
+  def show
+  end
 
-	def new
-		@book = Book.new
-	end
+  def new
+    @book = Book.new
+  end
 
-	def edit
-		
-	end
+  def edit
+  end
 
-	def create
-		@book = Book.new(book_params)
-		respond_to do |format|
-			if @book.save
-				format.html { redirect_to @book, notice: 'Book was successfully created.' }
-				format.js
-			else
-				format.html {render :new}
-			end
-		end
+  def create
+    @book = Book.new
+    @book.author_id = Book.assign_author(book_params[:author])
+    @book.description = book_params[:description]
+    @book.name = book_params[:name]
+    @book.genre_id = book_params[:genre_id]
 
-	end
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.js
+      else
+        format.html {render :new}
+      end
+    end
 
-	def update
-		respond_to do |format|
-			if @book.update(book_params)
-				format.html { redirect_to @book, notice: 'Book was successfully updated.' }
-			else
-				format.html { render :edit }
-			end
-		end
-		
-	end
+  end
 
-	def destroy
-		@book.destroy
-		respond_to do |format|
-			format.html { redirect_to books_url, notice: 'Book was successfuly deleted'}
-		end	
-	end
+  def update
+    respond_to do |format|
+      if @book.update(book_params)
+        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
 
-	private
-		def set_book
-			@book = Book.find(params[:id])
-		end
+  def destroy
+    @book.destroy
+    respond_to do |format|
+      format.html { redirect_to books_url, notice: 'Book was successfuly deleted'}
+    end
+  end
 
-		def book_params
-			params.require(:book).permit(:name, :author, :description, :genre)
-		end
+  private
+  def set_book
+    @book = Book.find(params[:id])
+  end
+
+  def book_params
+    params.require(:book).permit(:name, :author, :description, :genre_id )
+  end
 end
