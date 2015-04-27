@@ -7,11 +7,11 @@
   </ol>
 
   <div class="row">
-    <div class='col-sm-12'>
+    <div class='col-md-12'>
       <p>
       <form>
         <legend>Search</legend>
-        <div class='col-xs-4'>
+        <div class='col-md-4'>
           <input type='text' class='form-control' value='<%= params[:keyword] %>' name='keyword' placeholder='Keyword' >
         </div>
       </form>
@@ -23,12 +23,12 @@
   </div>
   <hr>
 
-  <div class='col-sm-12 book-form'>
+  <div class='col-md-12 book-form'>
     <p>
     <%= form_for(@book, remote: true, html: {class: 'horizontal-form'}) do |f| %>
     <legend>New Book</legend>
 
-    <div class='col-sm-5'>
+    <div class='col-md-5'>
       <div class='form-group'>
 
         <label><strong>Genre</strong></label>
@@ -62,14 +62,14 @@
 
 
   <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
       <ul class="list-unstyled book-list">
 
         <%= render @books %>
 
       </ul>
     </div>
-    <div class='col-sm-4'>
+    <div class='col-md-4'>
       <h2>Genres</h2>
       <ul class="list-unstyled">
         <% @genres.each do |genre| %>
