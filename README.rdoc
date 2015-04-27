@@ -1,4 +1,2 @@
 == README
-
-This is a proof of concept app for using scopes to sort a library catalog. Book creation still needs to be implemented.
-- This app is diployed on heroku at https://lit-ocean-4445.herokuapp.com
+Library app for orgainzing and cataloging books. Can be found at jdlibrary.heroku.com .
