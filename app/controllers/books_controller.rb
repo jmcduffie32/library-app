@@ -18,10 +18,7 @@ class BooksController < ApplicationController
   end
 
   def create
-    book_params[:author_id] = Book.assign_author(book_params[:author])
-    book_params.destroy(:author)
-    debugger
-    @book = Book.new(book_params)
+    @book = Book.create_book(book_params)
 
     respond_to do |format|
       if @book.save

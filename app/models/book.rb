@@ -10,8 +10,9 @@ class Book < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: true
 
-  def self.assign_author(author_name)
-    Author.assign_author(author_name).id
+  def self.create_book(book_params)
+    book_params[:author] = Author.assign_author(book_params[:author])
+    create(book_params)
   end
 
   protected
