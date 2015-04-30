@@ -25,7 +25,7 @@ class BooksController < ApplicationController
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.js
       else
-        format.html {render :new}
+        format.html {render :index}
       end
     end
 
