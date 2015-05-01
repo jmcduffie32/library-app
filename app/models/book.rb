@@ -4,7 +4,8 @@ class Book < ActiveRecord::Base
 
   scope :search, ->(keyword){ where('keywords LIKE ?',"%#{keyword}%") if keyword.present?}
   scope :finished, ->{ where(read: true)}
-  scope :filter, ->(name){ joins(:genre).where('genres.name = ?', name) if name.present?}
+  scope :genre_filter, ->(name){ joins(:genre).where('genres.name = ?', name) if name.present?}
+  scope :author_filter, ->(name){ joins(:author).where('authors.name = ?', name) if name.present?}
 
   before_save :set_keywords
 

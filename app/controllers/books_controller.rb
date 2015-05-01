@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
-    @books = Book.includes(:genre).search(params[:keyword]).filter(params[:filter])
+    @books = Book.includes(:genre, :author).search(params[:keyword]).author_filter(params[:author_filter]).genre_filter(params[:genre_filter])
     @genres = Genre.all
     @book = Book.new
   end
