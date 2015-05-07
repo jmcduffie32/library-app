@@ -2,6 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $('#show-form').on 'click', (e) ->
+  $(document).on 'click','#show-form', (e) ->
     e.preventDefault()
     $('.book-form').toggle()
