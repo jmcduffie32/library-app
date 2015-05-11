@@ -4,4 +4,4 @@
 $ ->
   $(document).on 'click','#show-form', (e) ->
     e.preventDefault()
-    $('.book-form').toggle()
+    $('.book-form').slideToggle()
