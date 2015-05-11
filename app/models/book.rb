@@ -1,4 +1,5 @@
 class Book < ActiveRecord::Base
+  require 'openlibrary'
   belongs_to :genre
   belongs_to :author
 
