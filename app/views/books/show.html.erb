@@ -3,5 +3,6 @@
 <ul>
 	<li><%= link_to @book.author.name, @book.author %></li>
 	<li><%= link_to @book.genre.name, @book.genre %></li>
+  <li><%= link_to "Delete", @book.destroy %></li>
 </ul>
 <p><%= link_to "Books", books_path %> </p>
